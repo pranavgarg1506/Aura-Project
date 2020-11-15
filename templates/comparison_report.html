@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aura Scan Protal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static',filename='css/landing-page.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static',filename='font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">Aura Scan Portal</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse row" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right  ">
+                  <li>
+                      <a href="/">Home</a>
+                  </li>
+                  <li>
+                      <a href="/">Our Services</a>
+                  </li>
+                  <li>
+                      <a href="/">About</a>
+                  </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+        <div class="container-fluid" style="background-color:#eeeee0">
+          <div class="container">
+              <div class="intro-message " style="padding-top:8%;padding-bottom:2%">
+                  <h1>Comparison Report</h1>
+                  <hr class="intro-divider" style="width:100%">
+              </div>
+          </div>
+        </div>
+
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+    <!-- Personal Info -->
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading text-muted" >Personal Information</h3>
+                    <div class="container " style="padding:0px">
+
+                      <dl class="row">
+                          <dt class="col-sm-4 text-uppercase">Name</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[0] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[0] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Report-Date</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[1] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[1] }}</p></dd>
+                      </dl>
+
+                    </div>
+
+                </div>
+              </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+
+    <!-- Report Values  -->
+    <div class="content-section-b" style="background-color:#eeeee0">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading text-muted" >Report Values</h3>
+                    <div class="container  " style="padding:0px">
+                      <dl class="row">
+                          <dt class="col-sm-4 text-uppercase">Emotional Pressure</dt>
+                          <dd class="col-sm-4 "
+                          {% if ( user1[2] >= 0 and user1[2]<3) %} style="color: green"
+                          {% elif ( user1[2] >= 3 and user1[2]<6) %}style="color: orange"
+                          {% elif ( user1[2] >= 6 and user1[2]<10) %}style="color: red"{% endif %}
+                            ><p>{{ user1[2] }}</p></dd>
+                            <dd class="col-sm-4 "
+                            {% if ( user2[2] >= 0 and user2[2]<3) %} style="color: green"
+                            {% elif ( user2[2] >= 3 and user2[2]<6) %}style="color: orange"
+                            {% elif ( user2[2] >= 6 and user2[2]<10) %}style="color: red"{% endif %}
+                              ><p>{{ user2[2] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Energy</dt>
+                         <dd class="col-sm-4 "
+                            {% if ( user1[3] >= 0 and user1[3]<40) %} style="color: green"
+                           {% elif ( user1[3] >= 40 and user1[3]<70) %}style="color: orange"
+                           {% elif ( user1[3] >= 70 and user1[3]<100) %}style="color: red"{% endif %}
+                           ><p>{{ user1[3] }} Joules</p></dd>
+                           <dd class="col-sm-4 "
+                              {% if ( user2[3] >= 0 and user2[3]<40) %} style="color: green"
+                             {% elif ( user2[3] >= 40 and user2[3]<70) %}style="color: orange"
+                             {% elif ( user2[3] >= 70 and user2[3]<100) %}style="color: red"{% endif %}
+                             ><p>{{ user2[3] }} Joules</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">L/R Symmetry</dt>
+                          <dd class="col-sm-4 "
+                          {% if ( user1[4] >= 0 and user1[4]<50) %} style="color: red"
+                          {% elif ( user1[4] >= 50 and user1[4]<90) %}style="color: orange"
+                          {% elif ( user1[4] >= 90 and user1[4]<100) %}style="color: green"{% endif %}
+                          ><p>{{ user1[4] }} %</p></dd>
+                          <dd class="col-sm-4 "
+                          {% if ( user2[4] >= 0 and user2[4]<50) %} style="color: red"
+                          {% elif ( user2[4] >= 50 and user2[4]<90) %}style="color: orange"
+                          {% elif ( user2[4] >= 90 and user2[4]<100) %}style="color: green"{% endif %}
+                          ><p>{{ user2[4] }} %</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Organ Balance</dt>
+                          <dd class="col-sm-4 "
+                            {% if ( user1[5] >= 0 and user1[5]<40) %} style="color: red"
+                            {% elif ( user1[5] >= 40 and user1[5]<70) %}style="color: orange"
+                            {% elif ( user1[5] >= 70 and user1[5]<100) %}style="color: green"{% endif %}
+                            ><p>{{ user1[5] }} %</p></dd>
+                            <dd class="col-sm-4 "
+                              {% if ( user2[5] >= 0 and user2[5]<40) %} style="color: red"
+                              {% elif ( user2[5] >= 40 and user2[5]<70) %}style="color: orange"
+                              {% elif ( user2[5] >= 70 and user2[5]<100) %}style="color: green"{% endif %}
+                              ><p>{{ user2[5] }} %</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Entropy Coefficient</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[6] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[6] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Form Coefficient</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[7] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[7] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Yin</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[8] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[8] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Yang</dt>
+                          <dd class="col-sm-4 "><p>{{ user1[9] }}</p></dd>
+                          <dd class="col-sm-4 "><p>{{ user2[9] }}</p></dd>
+                      </dl>
+
+                    </div>
+                </div>
+              </div>
+
+        </div>
+      </div>
+
+    <!-- Graphical Analysis -->
+    <div class="content-section-a">
+
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-5 col-sm-6">
+                  <div class="clearfix"></div>
+                  <h3 class="section-heading text-muted" >Graphical Analysis</h3>
+                  <div class="container " >
+
+                    <!-- GRAPHS GO HERE  -->
+                    <dl class="row">
+                      <!-- Chakra Analysis  -->
+                        <dt class="col-lg text-uppercase">Chakra Analysis</dt> <br>
+                        <dd class="col-lg ">
+
+                          <img src="{{url_for('static',filename='comparison_img/chakra_graph.png')}}" alt="">
+                        </dd> <br>
+
+                        <!-- General Analysis -->
+
+                    </dl>
+
+                  </div>
+              </div>
+            </div>
+
+      </div>
+    </div>
+
+    <!-- Rating  -->
+
+    <div class="content-section-a" style="background-color:#eeeee0">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <div class="clearfix"></div>
+                    <h3 class="section-heading text-muted" >Overall Health Analysis</h3>
+                    <div class="container " style="padding:0px">
+
+                      <dl class="row">
+                          <dt class="col-sm-4 text-uppercase">Rating</dt>
+                          <dd class="col-sm-4 " {% if ( user1[13] >= 0 and user1[13]<=5) %} style="color: red"
+                         {% elif ( user1[13] > 5 and user1[13]<=7) %}style="color: orange"
+                         {% elif ( user1[13] > 7 and user1[13]<=10) %}style="color: green"
+                         {% endif %} ><p>{{ user1[13] }}</p></dd>
+                         <dd class="col-sm-4 " {% if ( user2[13] >= 0 and user2[13]<=5) %} style="color: red"
+                        {% elif ( user2[13] > 5 and user2[13]<=7) %}style="color: orange"
+                        {% elif ( user2[13] > 7 and user2[13]<=10) %}style="color: green"
+                        {% endif %} ><p>{{ user2[13] }}</p></dd>
+
+                          <dt class="col-sm-4 text-uppercase">Scale</dt>
+                          <dd class="col-sm-4 ">
+                            <div  style="padding-top:2%;padding-bottom:2%;">
+                              <img class="img-responsive"src="{{url_for('static',filename='analysis_img/rating_values_'+user1[0]+'.png')}}" alt="">
+                            </div>
+                        </dd>
+                        <dd class="col-sm-4 ">
+                          <div  style="padding-top:2%;padding-bottom:2%;">
+                            <img class="img-responsive"src="{{url_for('static',filename='analysis_img/rating_values_'+user2[0]+'.png')}}" alt="">
+                          </div>
+                      </dd>
+                        <br>
+                      </dl>
+
+                    </div>
+
+                </div>
+              </div>
+
+        </div>
+        <!-- /.container -->
+      </div>
+     <!-- Footer -->
+     <footer class="site-footer">
+       <div class="container">
+         <div class="row">
+
+
+
+
+           <div class="col-md-8 col-sm-6 col-xs-12">
+             <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved</p>
+           </div>
+
+           <div class="col-md-4 col-sm-6 col-xs-12">
+             <ul class="social-icons">
+               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+               <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+               <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </footer>
+
+    <!-- jQuery -->
+    <script src="{{url_for('static',filename='js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+
+</body>
+
+</html>
