@@ -7,6 +7,7 @@ import matplotlib
 matplotlib.use('Agg')				# for preventing local thread error
 import matplotlib.pyplot as plt
 import openpyxl
+import os
 
 
 def analyse(report):

@@ -4,8 +4,9 @@ import pandas as pd
 #import numpy as np
 import matplotlib.pyplot as plt
 import openpyxl
-from sklearn import tree,os
+from sklearn import tree
 from sklearn.metrics import accuracy_score
+import os
 
 def predict(name):
 	print("PREDICTION",os.getcwd())
