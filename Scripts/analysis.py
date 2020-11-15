@@ -11,8 +11,10 @@ import os
 
 
 def analyse(report):
-
-	file_path = "/home/pranav/Desktop/Aura-Project/AuraSite/App/"
+	print("ANALYSIS",os.getcwd())
+	file_path = os.getcwd()+str("/")
+	print("FILE_PATH_ANALYSIS",file_path)
+	#file_path = "/home/pranav/Desktop/Aura-Project/AuraSite/App/"
 	file_upload = open(file_path+'Uploads/'+str(report),'rb') 		# open the file in new data object and then load into the function
 	graph_save = file_path+"static/analysis_img/"
 	book = openpyxl.load_workbook(filename=file_upload)

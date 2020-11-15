@@ -11,6 +11,7 @@ import os
 def predict(name):
 	print("PREDICTION",os.getcwd())
 	file_path = os.getcwd()+str("/")
+	print("FILE_PATH_PREDICTION",file_path)
 	#file_path = "/home/pranav/Desktop/Aura-Project/AuraSite/App/"
 	file_upload = open(file_path+'Uploads/'+ str(name),'rb') 		# open the file in new data object and then load into the function
 	book3 = openpyxl.load_workbook(filename=file_upload)
