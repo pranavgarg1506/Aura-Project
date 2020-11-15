@@ -5,7 +5,9 @@ from flask import Flask,render_template,flash, request, redirect, url_for
 import os,Scripts as sc
 
 app = Flask(__name__)
-UPLOAD_FOLDER = '/home/pranav/Desktop/Aura-Project/AuraSite/App/Uploads/'
+#UPLOAD_FOLDER = '/home/pranav/Desktop/Aura-Project/AuraSite/App/Uploads/'
+UPLOAD_FOLDER = os.getcwd()+str("/Uploads/")
+print("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #Function For Utilising the same page for upload of analysis and prediction files
@@ -64,7 +66,6 @@ def upload_file(type):
        if type == 'predict' or type == 'analysis':
           file = request.files['uploadedFile']
           file.save(os.path.join(app.config['UPLOAD_FOLDER'],file.filename))
-          print(file.filename)
           return check_type_upload(type,file.filename)
        elif type == 'compare' :
           files = request.files.getlist('uploadedFile')
