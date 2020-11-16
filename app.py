@@ -7,7 +7,7 @@ import os,Scripts as sc
 app = Flask(__name__)
 #UPLOAD_FOLDER = '/home/pranav/Desktop/Aura-Project/AuraSite/App/Uploads/'
 UPLOAD_FOLDER = os.getcwd()+str("/Uploads/")
-print("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",UPLOAD_FOLDER)
+print("path of the Upload Folder",UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #Function For Utilising the same page for upload of analysis and prediction files

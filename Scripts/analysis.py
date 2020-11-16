@@ -11,7 +11,6 @@ import os
 
 
 def analyse(report):
-	print("ANALYSIS",os.getcwd())
 	file_path = os.getcwd()+str("/")
 	print("FILE_PATH_ANALYSIS",file_path)
 	#file_path = "/home/pranav/Desktop/Aura-Project/AuraSite/App/"

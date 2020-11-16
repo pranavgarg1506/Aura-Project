@@ -9,7 +9,6 @@ from sklearn.metrics import accuracy_score
 import os
 
 def predict(name):
-	print("PREDICTION",os.getcwd())
 	file_path = os.getcwd()+str("/")
 	print("FILE_PATH_PREDICTION",file_path)
 	#file_path = "/home/pranav/Desktop/Aura-Project/AuraSite/App/"
